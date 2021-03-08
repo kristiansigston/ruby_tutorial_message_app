@@ -19,4 +19,31 @@ require("semantic-ui-sass")
 
 window.$ = jquery = window.jQuery
 
-$(document).on("turbolinks:load", () => $(".ui.dropdown").dropdown());
+scroll_bottom = function() {
+  const messages = $('#messages')
+  if (messages.length > 0) {
+    messages.scrollTop(messages[0].scrollHeight)
+  }
+}
+
+submit_message = function() {
+  $('#message_body').on('keydown', function(e){
+    if (e.key === 'Enter') {
+      $('button').trigger('click')
+      e.target.value = ''
+    }
+  })
+}
+
+$(document).on("turbolinks:load", () => {
+  $(".ui.dropdown").dropdown()
+  $('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  })
+  submit_message()
+  scroll_bottom()
+});

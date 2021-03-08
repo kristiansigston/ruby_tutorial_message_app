@@ -1,6 +1,6 @@
 # Common configuration.
-
 AllCops:
+  SuggestExtensions: false
   RubyInterpreters:
     - ruby
     - macruby
@@ -144,12 +144,12 @@ AllCops:
   # rubocop is run. Keys are the name of the extension, and values are an array
   # of gems in the Gemfile that the extension is suggested for, if not already
   # included.
-  SuggestExtensions:
-    rubocop-rails: [rails]
-    rubocop-rspec: [rspec, rspec-rails]
-    rubocop-minitest: [minitest]
-    rubocop-sequel: [sequel]
-    rubocop-rake: [rake]
+  # SuggestExtensions:
+  #   rubocop-rails: [rails]
+  #   rubocop-rspec: [rspec, rspec-rails]
+  #   rubocop-minitest: [minitest]
+  #   rubocop-sequel: [sequel]
+  #   rubocop-rake: [rake]
 
 #################### Bundler ###############################
 
@@ -173,6 +173,9 @@ Bundler/GemComment:
     - '**/gems.rb'
   IgnoredGems: []
   OnlyFor: []
+
+
+
 
 # Bundler/InsecureProtocolSource:
 #   Description: >-
